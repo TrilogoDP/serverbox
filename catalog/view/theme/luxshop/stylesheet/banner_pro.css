@@ -1,0 +1,135 @@
+.banner-pro-box [class*="col-"] {
+	padding-top: 60px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: all .2s ease-in-out;
+}
+
+@media (max-width: 500px) {
+	.banner-pro-box .row-flex{
+		-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+	.banner-pro-box [class*="col-"] {
+		-ms-flex: 0 0 75%;
+		flex: 0 0 75%;
+		max-width: 75%;
+	}
+}
+@media (min-width: 500px) {
+	.banner-pro-box .row-flex{
+		-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+	.banner-pro-box [class*="col-"] {
+		-ms-flex: 0 0 45%;
+		flex: 0 0 45%;
+		max-width: 45%;
+	}
+}
+@media (min-width: 768px) {
+	.banner-pro-box [class*="col-"] {
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.banner-pro-box .row-flex{
+		flex-wrap: wrap;
+	}
+}
+@media (min-width: 992px) {
+	.banner-pro-box .col-4,
+	.banner-pro-box .col-2 {
+		-ms-flex: 0 0 33.3333333333%;
+		flex: 0 0 33.3333333333%;
+		max-width: 33.3333333333%;
+	}
+	.banner-pro-box .col-3 {
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+}
+@media (min-width: 1200px) {
+	.banner-pro-box .col-6 {
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.banner-pro-box .col-4 {
+		-ms-flex: 0 0 33.3333333333%;
+		flex: 0 0 33.3333333333%;
+		max-width: 33.3333333333%;
+	}
+	.banner-pro-box .col-3 {
+		-ms-flex: 0 0 25%;
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+
+}
+@media (min-width: 1300px) {
+	.banner-pro-box .col-2 {
+		-ms-flex: 0 0 16.6666666667%;
+		flex: 0 0 16.6666666667%;
+		max-width: 16.6666666667%;
+	}
+}
+.banner-pro-box .item-bpro {
+	background: #F8F9FA;
+	border-radius: 15px;
+	padding: 20px;
+	height: 100%;
+	margin-bottom: 10px;
+}
+.banner-pro-box .bpro-image img{
+	color:transparent;
+}
+.banner-pro-box .bpro-image {
+	transform: translateY(-75px);
+	margin: 0px auto -75px auto;
+}
+.banner-pro-box .bpro-title {
+	color:#000;
+	font-size: 16px;
+	margin-bottom: 10px;
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	min-height: 40px;
+}
+.banner-pro-box .bpro-description {
+	color:#4B4B4B;
+	font-size: 14px;
+	margin-bottom: 10px;
+	max-height: 102px;
+	overflow:hidden;
+}
+
+.banner-pro-box .bpro-price-from {
+	font-size: 14px;
+	margin-right: 5px;
+}
+.banner-pro-box .bpro-price-box {
+	margin-top: auto;
+}
+.banner-pro-box .bpro-price {
+	font-weight: 600;
+	color:#000;
+	font-size: 16px;
+}
+
+.bpro-link {
+	width: 32px;
+	height: 32px;
+	background: #FFFFFF;
+	box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+}

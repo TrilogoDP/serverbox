@@ -1,0 +1,110 @@
+.btn-menu,
+.btn-menu-top {
+	background: #00BC52;
+}
+.btn-menu-top.vh3-bl, .btn-menu-top.vh4 {
+	background:#000;
+}
+.btn-menu-top.vh3-bl:hover, .btn-menu-top.vh4:hover,
+.btn-menu-top.vh3-bl:focus, .btn-menu-top.vh4:focus {
+	background: #000;
+	opacity: .9;
+}
+.mob-fix-panel .btn-go-home.active-bg {
+	background: #F2848226;
+}
+.mob-fix-panel .btn-go-home.active-bg svg path {
+	stroke: #F28482;
+}
+.mob-fix-panel .btn-go-home.active-bg .text-a-icon{
+	color:#F28482;
+}
+.btn-menu,
+.btn-menu-top {
+	background: #F28482;
+}
+.ms-price .ms-price-from,
+.ms-price .ms-price-text {
+	color: #fff;
+}
+.ms-price .ms-price-cont,
+.container-module .slick-dots li.slick-active button {background: #F28482;}
+
+.btn-search {
+	background-color: #84A59D;
+}
+.btn-search:hover,.btn-search:focus, .btn-search:active {
+	background-color:#6F978D;
+}
+
+.wishlist-quantity, .compare-quantity {
+	background: #f6bd60;
+	color: #000;
+}
+#cart .products b {
+	background: #f6bd60;
+	color:#000;
+}
+.btn-general {
+	background: #84A59D;
+}
+.btn-general:focus, .btn-general:hover, .btn-general:active {
+	background: #6F978D !important;
+	color:#fff;
+}
+#menu-vertical.open-mob .btn-menu, #menu-vertical.open .btn-menu, .btn-menu:hover, .btn-menu:active, .btn-menu.active, .btn-menu.disabled,
+
+.btn-menu-top.vh3:hover,
+.btn-menu-top.vh3:focus {
+	background: #F2706D !important;
+}
+.footer-ribbon {
+	background-color: #F6BD60;
+}
+.footer-ribbon-box::after {
+	background-color: #D99B36;
+}
+footer .btn-newsletter {
+	background: #F6BD60;
+}
+footer .btn-newsletter:hover, footer .btn-newsletter:active {
+	background: #D99B36;
+	color:#ffffff;
+}
+.btn-primary:focus, .btn-primary:focus, .btn-primary,
+.btn-checkout:focus, .btn-checkout:focus, .btn-checkout,
+#popup-callback .btn-callback:focus,
+#popup-callback .btn-callback {
+    background: #F28482;
+}
+.btn-primary:hover, .btn-primary:active,
+.btn-checkout:hover, .btn-checkout:active,
+#popup-callback .btn-callback:hover,
+#popup-callback .btn-callback:active{
+    background: #F2706D;
+    color:#fff;
+}
+.btn-quickorder,
+.btn-quickorder-one {
+    background-color: #F28482;
+}
+
+.btn-quickorder:hover, .btn-quickorder:focus,
+.btn-quickorder-one:hover, .btn-quickorder-one:focus{
+    background-color:#F2706D;
+    color:#fff;
+}
+#login-form-popup .btn-login:focus, #login-form-popup .btn-login,
+#popup-found-cheaper .btn-found-cheaper:focus,
+#popup-found-cheaper .btn-found-cheaper {
+    background-color: #F28482;
+}
+#login-form-popup .btn-login:hover, #login-form-popup .btn-login:active,
+#popup-found-cheaper .btn-found-cheaper:hover, #popup-found-cheaper .btn-found-cheaper:active {
+    background-color: #F2706D;
+    border:0px;
+    color:#ffffff;
+}
+.mobm-top .btn.btn-menu-contact:after, .mobm-top .btn.btn-menu-viewed:after, .mobm-top .btn.btn-catalog-mobile:after, .mobm-top .btn.btn-menu-info:after {
+	background: #F28482;
+}

@@ -1,0 +1,112 @@
+.btn-menu-top.vh3-bl, .btn-menu-top.vh4 {
+	background:#000;
+}
+.btn-menu-top.vh3-bl:hover, .btn-menu-top.vh4:hover,
+.btn-menu-top.vh3-bl:focus, .btn-menu-top.vh4:focus {
+	background: #000;
+	opacity: .9;
+}
+#product .stock_status_success,
+.stock-status.instock {
+	color: #07DE99;
+}
+#product .stock_status_success svg path,
+.stock-status.instock svg path{
+	fill:#07DE99;
+}
+.sticker-ls-pd.procent-skidka {
+	background: #07DE99;
+}
+.mob-fix-panel .btn-go-home.active-bg {
+	background: #02BFCB26;
+}
+.mob-fix-panel .btn-go-home.active-bg svg path {
+	stroke: #02BFCB;
+}
+.mob-fix-panel .btn-go-home.active-bg .text-a-icon{
+	color:#02BFCB;
+}
+.btn-menu,
+.btn-menu-top {
+	transition: none;
+	background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}
+.ms-price .ms-price-from,
+.ms-price .ms-price-text {
+	color: #fff;
+}
+.ms-price .ms-price-cont,
+.container-module .slick-dots li.slick-active button {background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);}
+.btn-search {
+	background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}
+.wishlist-quantity, .compare-quantity {
+	background: #05D4AB;
+	color: #fff;
+}
+#cart .products b {
+	background: #05D4AB;
+	color:#fff;
+}
+
+.btn-primary:focus, .btn-primary:focus, .btn-primary,
+.btn-checkout:focus, .btn-checkout:focus, .btn-checkout,
+.btn-general {
+	transition: none;
+	color:#fff !important;
+	background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}
+#menu-vertical.open-mob .btn-menu, #menu-vertical.open .btn-menu, .btn-menu:hover, .btn-menu:active, .btn-menu.active, .btn-menu.disabled,
+.btn-primary:hover, .btn-primary:active,
+.btn-checkout:hover, .btn-checkout:active,
+footer .btn-newsletter:hover, footer .btn-newsletter:active,
+.btn-search:hover,.btn-search:focus, .btn-search:active,
+.btn-menu-top.vh3:hover,
+.btn-menu-top.vh3:focus,
+.btn-general:focus, .btn-general:hover, .btn-general:active {
+	background: #05D4AB !important;
+}
+.footer-ribbon {
+	background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}
+.footer-ribbon-box::after {
+	background: #05D4AB;
+}
+footer .btn-newsletter {
+	color:#fff !important;
+	background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}
+
+#popup-callback .btn-callback:focus,
+#popup-callback .btn-callback {
+    background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}
+#popup-callback .btn-callback:hover,
+#popup-callback .btn-callback:active{
+    background: #05D4AB;
+    color:#fff;
+}
+.btn-quickorder,
+.btn-quickorder-one {
+    background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}
+
+.btn-quickorder:hover, .btn-quickorder:focus,
+.btn-quickorder-one:hover, .btn-quickorder-one:focus{
+    background:#05D4AB;
+    color:#fff;
+}
+#login-form-popup .btn-login:focus, #login-form-popup .btn-login,
+#popup-found-cheaper .btn-found-cheaper:focus,
+#popup-found-cheaper .btn-found-cheaper {
+    background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}
+#login-form-popup .btn-login:hover, #login-form-popup .btn-login:active,
+#popup-found-cheaper .btn-found-cheaper:hover, #popup-found-cheaper .btn-found-cheaper:active {
+    background: #05D4AB;
+    border:0px;
+    color:#ffffff;
+}
+.mobm-top .btn.btn-menu-contact:after, .mobm-top .btn.btn-menu-viewed:after, .mobm-top .btn.btn-catalog-mobile:after, .mobm-top .btn.btn-menu-info:after {
+	background: linear-gradient(129.1deg, #00B0E6 -17.84%, #08E68D 83.84%);
+}

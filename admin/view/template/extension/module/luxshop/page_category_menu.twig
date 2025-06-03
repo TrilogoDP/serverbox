@@ -1,0 +1,255 @@
+				<div class="form-group">
+					<div class="col-sm-12 title-setting">{{ text_setting_category_page }}</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_subcategory }}</label>
+					<div class="col-sm-9">
+						<div class="checkbox-group-pixelshop">
+							<label><input type="checkbox" name="show_subcategories" value="1" {{ show_subcategories is defined and show_subcategories == '1' ? 'checked="checked"' : '' }} /><span></span></label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+                  <label for="input-subcategories_row_limit" class="col-sm-3 control-label">{{ text_subcategories_row_limit }}</label>
+                  <div class="col-sm-9">
+                    <select class="form-control" id="input-subcategories_row_limit" name="subcategories_row_limit">
+                        {% if (subcategories_row_limit is defined and (subcategories_row_limit == 2)) %}
+							<option value="3">4</option>
+							<option value="2" selected="selected">6</option>
+						{% else %}
+							<option value="3" selected="selected">4</option>
+							<option value="2">6</option>
+						{% endif %}
+                    </select>
+                  </div>
+                </div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_subcategory_image }}</label>
+					<div class="col-sm-9">
+						<div class="checkbox-group-pixelshop">
+							<label><input type="checkbox" name="show_subcategories_image" value="1" {{ show_subcategories_image is defined and show_subcategories_image == '1' ? 'checked="checked"' : '' }} /><span></span></label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ ns_text_subcat_width }}</label>
+					<div class="col-sm-9">
+						<input class="form-control" type="text" name="ns_subcat_width" value="{{ ns_subcat_width }}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ ns_text_subcat_height }}</label>
+					<div class="col-sm-9">
+						<input class="form-control" type="text" name="ns_subcat_height" value="{{ ns_subcat_height }}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_short_attribute_status }}</label>
+					<div class="col-sm-9">
+						<div class="checkbox-group-pixelshop">
+							<label><input type="checkbox" name="show_attr_cpage" value="1" {{ show_attr_cpage is defined and show_attr_cpage == '1' ? 'checked="checked"' : '' }} /><span></span></label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_short_attribute_group_product }}</label>
+					<div class="col-sm-9">
+						<input class="form-control" type="text" name="cpage_attr_group_count" value="{{ cpage_attr_group_count }}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_short_attribute_group_product_item }}</label>
+					<div class="col-sm-9">
+						<input class="form-control" type="text" name="cpage_attr_group_item_count" value="{{ cpage_attr_group_item_count }}" />
+					</div>
+				</div>
+				<div class="form-group">
+                  <label for="input-config_price_list_view_on_off" class="col-sm-3 control-label">{{ text_localstorege_pricelist }}</label>
+                  <div class="col-sm-9">
+                    <select class="form-control" id="input-config_price_list_view_on_off" name="config_price_list_view_on_off">
+                        {% if (config_price_list_view_on_off) %}
+							<option value="1" selected="selected">{{ text_enabled }}</option>
+							<option value="0">{{ text_disabled }}</option>
+						{% else %}
+							<option value="1">{{ text_enabled }}</option>
+							<option value="0" selected="selected">{{ text_disabled }}</option>
+						{% endif %}
+                    </select>
+                  </div>
+                </div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_catalog_category_description_dropped }}</label>
+					<div class="col-sm-5">
+						<div class="radio-group-infinity">
+							{% if (config_catalog_category_description_dropped) %}
+							<input id="config_catalog_category_description_dropped_yes" class="hide-radio" type="radio" name="config_catalog_category_description_dropped" value="1" checked="checked" />
+							<label for="config_catalog_category_description_dropped_yes">{{ text_yes }}</label>
+							{% else %}
+							<input id="config_catalog_category_description_dropped_yes" class="hide-radio" type="radio" name="config_catalog_category_description_dropped" value="1" />
+							<label for="config_catalog_category_description_dropped_yes">{{ text_yes }}</label>
+							{% endif %}
+							{% if (not config_catalog_category_description_dropped) %}
+							<input id="config_catalog_category_description_dropped_no" class="hide-radio" type="radio" name="config_catalog_category_description_dropped" value="0" checked="checked" />
+							<label for="config_catalog_category_description_dropped_no">{{ text_no }}</label>
+							{% else %}
+							<input id="config_catalog_category_description_dropped_no" class="hide-radio" type="radio" name="config_catalog_category_description_dropped" value="0" />
+							<label for="config_catalog_category_description_dropped_no">{{ text_no }}</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_category_page_model_product }}</label>
+					<div class="col-sm-5">
+						<div class="radio-group-infinity">
+							{% if (config_on_off_category_page_model_product) %}
+							<input id="config_on_off_category_page_model_product_yes" class="hide-radio" type="radio" name="config_on_off_category_page_model_product" value="1" checked="checked" />
+							<label for="config_on_off_category_page_model_product_yes">{{ text_yes }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_model_product_yes" class="hide-radio" type="radio" name="config_on_off_category_page_model_product" value="1" />
+							<label for="config_on_off_category_page_model_product_yes">{{ text_yes }}</label>
+							{% endif %}
+							{% if (not config_on_off_category_page_model_product) %}
+							<input id="config_on_off_category_page_model_product_no" class="hide-radio" type="radio" name="config_on_off_category_page_model_product" value="0" checked="checked" />
+							<label for="config_on_off_category_page_model_product_no">{{ text_no }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_model_product_no" class="hide-radio" type="radio" name="config_on_off_category_page_model_product" value="0" />
+							<label for="config_on_off_category_page_model_product_no">{{ text_no }}</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_category_page_description }}</label>
+					<div class="col-sm-5">
+						<div class="radio-group-infinity">
+							{% if (config_on_off_category_page_description) %}
+							<input id="config_on_off_category_page_description_yes" class="hide-radio" type="radio" name="config_on_off_category_page_description" value="1" checked="checked" />
+							<label for="config_on_off_category_page_description_yes">{{ text_yes }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_description_yes" class="hide-radio" type="radio" name="config_on_off_category_page_description" value="1" />
+							<label for="config_on_off_category_page_description_yes">{{ text_yes }}</label>
+							{% endif %}
+							{% if (not config_on_off_category_page_description) %}
+							<input id="config_on_off_category_page_description_no" class="hide-radio" type="radio" name="config_on_off_category_page_description" value="0" checked="checked" />
+							<label for="config_on_off_category_page_description_no">{{ text_no }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_description_no" class="hide-radio" type="radio" name="config_on_off_category_page_description" value="0" />
+							<label for="config_on_off_category_page_description_no">{{ text_no }}</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_additional_image_hover }}</label>
+					<div class="col-sm-9">
+						<div class="checkbox-group-pixelshop">
+							<label><input type="checkbox" name="config_on_off_category_page_slider_additional_image" value="1" {{ config_on_off_category_page_slider_additional_image is defined and config_on_off_category_page_slider_additional_image == '1' ? 'checked="checked"' : '' }} /><span></span></label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_category_page_rating }}</label>
+					<div class="col-sm-5">
+						<div class="radio-group-infinity">
+							{% if (config_on_off_category_page_rating) %}
+							<input id="config_on_off_category_page_rating_yes" class="hide-radio" type="radio" name="config_on_off_category_page_rating" value="1" checked="checked" />
+							<label for="config_on_off_category_page_rating_yes">{{ text_yes }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_rating_yes" class="hide-radio" type="radio" name="config_on_off_category_page_rating" value="1" />
+							<label for="config_on_off_category_page_rating_yes">{{ text_yes }}</label>
+							{% endif %}
+							{% if (not config_on_off_category_page_rating) %}
+							<input id="config_on_off_category_page_rating_no" class="hide-radio" type="radio" name="config_on_off_category_page_rating" value="0" checked="checked" />
+							<label for="config_on_off_category_page_rating_no">{{ text_no }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_rating_no" class="hide-radio" type="radio" name="config_on_off_category_page_rating" value="0" />
+							<label for="config_on_off_category_page_rating_no">{{ text_no }}</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_category_page_quantity_reviews }}</label>
+					<div class="col-sm-5">
+						<div class="radio-group-infinity">
+							{% if (config_on_off_category_page_quantity_reviews) %}
+							<input id="config_on_off_category_page_quantity_reviews_yes" class="hide-radio" type="radio" name="config_on_off_category_page_quantity_reviews" value="1" checked="checked" />
+							<label for="config_on_off_category_page_quantity_reviews_yes">{{ text_yes }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_quantity_reviews_yes" class="hide-radio" type="radio" name="config_on_off_category_page_quantity_reviews" value="1" />
+							<label for="config_on_off_category_page_quantity_reviews_yes">{{ text_yes }}</label>
+							{% endif %}
+							{% if (not config_on_off_category_page_quantity_reviews) %}
+							<input id="config_on_off_category_page_quantity_reviews_no" class="hide-radio" type="radio" name="config_on_off_category_page_quantity_reviews" value="0" checked="checked" />
+							<label for="config_on_off_category_page_quantity_reviews_no">{{ text_no }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_quantity_reviews_no" class="hide-radio" type="radio" name="config_on_off_category_page_quantity_reviews" value="0" />
+							<label for="config_on_off_category_page_quantity_reviews_no">{{ text_no }}</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_category_page_fastorder }}</label>
+					<div class="col-sm-5">
+						<div class="radio-group-infinity">
+							{% if (config_on_off_category_page_fastorder) %}
+							<input id="config_on_off_category_page_fastorder_yes" class="hide-radio" type="radio" name="config_on_off_category_page_fastorder" value="1" checked="checked" />
+							<label for="config_on_off_category_page_fastorder_yes">{{ text_yes }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_fastorder_yes" class="hide-radio" type="radio" name="config_on_off_category_page_fastorder" value="1" />
+							<label for="config_on_off_category_page_fastorder_yes">{{ text_yes }}</label>
+							{% endif %}
+							{% if (not config_on_off_category_page_fastorder) %}
+							<input id="config_on_off_category_page_fastorder_no" class="hide-radio" type="radio" name="config_on_off_category_page_fastorder" value="0" checked="checked" />
+							<label for="config_on_off_category_page_fastorder_no">{{ text_no }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_fastorder_no" class="hide-radio" type="radio" name="config_on_off_category_page_fastorder" value="0" />
+							<label for="config_on_off_category_page_fastorder_no">{{ text_no }}</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_category_page_wishlist }}</label>
+					<div class="col-sm-5">
+						<div class="radio-group-infinity">
+							{% if (config_on_off_category_page_wishlist) %}
+							<input id="config_on_off_category_page_wishlist_yes" class="hide-radio" type="radio" name="config_on_off_category_page_wishlist" value="1" checked="checked" />
+							<label for="config_on_off_category_page_wishlist_yes">{{ text_yes }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_wishlist_yes" class="hide-radio" type="radio" name="config_on_off_category_page_wishlist" value="1" />
+							<label for="config_on_off_category_page_wishlist_yes">{{ text_yes }}</label>
+							{% endif %}
+							{% if (not config_on_off_category_page_wishlist) %}
+							<input id="config_on_off_category_page_wishlist_no" class="hide-radio" type="radio" name="config_on_off_category_page_wishlist" value="0" checked="checked" />
+							<label for="config_on_off_category_page_wishlist_no">{{ text_no }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_wishlist_no" class="hide-radio" type="radio" name="config_on_off_category_page_wishlist" value="0" />
+							<label for="config_on_off_category_page_wishlist_no">{{ text_no }}</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">{{ text_on_off_category_page_compare }}</label>
+					<div class="col-sm-5">
+						<div class="radio-group-infinity">
+							{% if (config_on_off_category_page_compare) %}
+							<input id="config_on_off_category_page_compare_yes" class="hide-radio" type="radio" name="config_on_off_category_page_compare" value="1" checked="checked" />
+							<label for="config_on_off_category_page_compare_yes">{{ text_yes }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_compare_yes" class="hide-radio" type="radio" name="config_on_off_category_page_compare" value="1" />
+							<label for="config_on_off_category_page_compare_yes">{{ text_yes }}</label>
+							{% endif %}
+							{% if (not config_on_off_category_page_compare) %}
+							<input id="config_on_off_category_page_compare_no" class="hide-radio" type="radio" name="config_on_off_category_page_compare" value="0" checked="checked" />
+							<label for="config_on_off_category_page_compare_no">{{ text_no }}</label>
+							{% else %}
+							<input id="config_on_off_category_page_compare_no" class="hide-radio" type="radio" name="config_on_off_category_page_compare" value="0" />
+							<label for="config_on_off_category_page_compare_no">{{ text_no }}</label>
+							{% endif %}
+						</div>
+					</div>
+				</div>

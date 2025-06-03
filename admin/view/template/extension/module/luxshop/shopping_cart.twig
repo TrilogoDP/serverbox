@@ -1,0 +1,72 @@
+<div class="form-group">
+	<div class="col-sm-12 title-setting">{{ text_setting_shopping_cart }}</div>
+</div>
+<div class="form-group">
+	<label class="col-sm-3 control-label">{{ text_on_off_hover_shopping_cart }}</label>
+	<div class="col-sm-9">
+		<div class="radio-group-infinity">
+			{% if (config_on_off_shopping_cart_hover) %}
+				<input id="config_on_off_shopping_cart_hover_yes" class="hide-radio" type="radio" name="config_on_off_shopping_cart_hover" value="1" checked="checked" />
+				<label for="config_on_off_shopping_cart_hover_yes">{{ text_yes }}</label>
+			{% else %}
+				<input id="config_on_off_shopping_cart_hover_yes" class="hide-radio" type="radio" name="config_on_off_shopping_cart_hover" value="1" />
+				<label for="config_on_off_shopping_cart_hover_yes">{{ text_yes }}</label>
+			{% endif %}
+			{% if (not config_on_off_shopping_cart_hover) %}
+				<input id="config_on_off_shopping_cart_hover_no" class="hide-radio" type="radio" name="config_on_off_shopping_cart_hover" value="0" checked="checked" />
+				<label for="config_on_off_shopping_cart_hover_no">{{ text_no }}</label>
+			{% else %}
+				<input id="config_on_off_shopping_cart_hover_no" class="hide-radio" type="radio" name="config_on_off_shopping_cart_hover" value="0" />
+				<label for="config_on_off_shopping_cart_hover_no">{{ text_no }}</label>
+			{% endif %}
+		</div>
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-sm-3 control-label" >{{ text_on_off_click_shopping_cart }}</label>
+	<div class="col-sm-9">
+		<select name="config_on_off_shopping_cart_click" class="form-control">
+			{% if (config_on_off_shopping_cart_click == '1') %}
+				<option value="1" selected="selected">{{ popup_shopping_cart }}</option>
+				<option value="0">{{ popup_standart }}</option>
+			{% else %}
+				<option value="0" selected="selected">{{ popup_standart }}</option>
+				<option value="1">{{ popup_shopping_cart }}</option>
+			{% endif %}
+		</select>
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-sm-3 control-label" >{{ text_shopping_cart_after_add }}</label>
+	<div class="col-sm-9">
+		<select name="config_shopping_cart_after_add" class="form-control">
+			{% if (config_shopping_cart_after_add == '1') %}
+				<option value="1" selected="selected">{{ popup_shopping_cart }}</option>
+				<option value="0">{{ popup_standart }}</option>
+				<option value="2">{{ mini_informer }}</option>
+			{% elseif (config_shopping_cart_after_add == '0') %}
+				<option value="0" selected="selected">{{ popup_standart }}</option>
+				<option value="1">{{ popup_shopping_cart }}</option>
+				<option value="2">{{ mini_informer }}</option>
+			{% else %}
+				<option value="2" selected="selected">{{ mini_informer }}</option>
+				<option value="1">{{ popup_shopping_cart }}</option>
+				<option value="0">{{ popup_standart }}</option>
+			{% endif %}
+		</select>
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-sm-3 control-label" >{{ text_type_cart }}</label>
+	<div class="col-sm-9">
+		<select name="type_shop_cart" class="form-control">
+			{% if (type_shop_cart == '1') %}
+				<option value="0">{{ text_type_cart_standart }}</option>
+				<option value="1" selected="selected">{{ text_type_cart_compact }}</option>
+			{% else %}
+				<option value="0" selected="selected">{{ text_type_cart_standart }}</option>
+				<option value="1">{{ text_type_cart_compact }}</option>
+			{% endif %}
+		</select>
+	</div>
+</div>
