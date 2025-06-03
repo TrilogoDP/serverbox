@@ -1,0 +1,50 @@
+<div class="container-module">
+	{% if (title is not empty) %}
+		<div class="title-module rc-mod"><span>{{ title }}</span></div>
+	{% endif %}
+	<div class="product-slider">
+	<div class="container-modules articles-mod mod_af{{ module }} owl-carousel">
+		{% for article in articles %}
+			<div class="item h-auto">
+			<div class="product-thumb dflex flex-column h-100">
+				{% if (img_status) %}
+				<div class="mod-art-image">
+					<div class="mod-art-date-added"><span class="text-date-added">{{ article.date_added }}</span></div>
+					<a href="{{ article.href }}"><img decoding="async" width="{{ article.width }}" height="{{ article.height }}" loading="lazy" src="{{ article.image }}" alt="{{ article.name }}" class="img-responsive" /></a>
+				</div>
+				{% endif %}
+				<div class="caption dflex flex-column flex-grow-1">
+					<div class="mod-art-name"><a href="{{ article.href }}">{{ article.name }}</a></div>
+					<div class="rating">
+						<span class="rating-box">
+							{% set i = 1 %}{% for i in i..5 %}
+								{% if (article.rating < i) %}
+									<span class="product-rating-star">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12">
+											<path fill="#E9ECEF" fill-rule="evenodd" d="M6 10.283l-2.972 1.634c-.498.274-1.08-.168-.985-.748l.567-3.46-2.404-2.45c-.403-.41-.18-1.126.376-1.21l3.323-.506L5.391.396a.666.666 0 011.218 0l1.486 3.147 3.323.505c.557.085.78.8.376 1.21L9.39 7.709l.567 3.46c.095.58-.487 1.023-.985.749L6 10.283z" clip-rule="evenodd"/>
+										</svg>
+									</span>
+								{% else %}
+									<span class="product-rating-star">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12">
+											<path fill="#E5DB77" fill-rule="evenodd" d="M6 10.283l-2.972 1.634c-.498.274-1.08-.168-.985-.748l.567-3.46-2.404-2.45c-.403-.41-.18-1.126.376-1.21l3.323-.506L5.391.396a.666.666 0 011.218 0l1.486 3.147 3.323.505c.557.085.78.8.376 1.21L9.39 7.709l.567 3.46c.095.58-.487 1.023-.985.749L6 10.283z" clip-rule="evenodd"/>
+										</svg>
+									</span>
+								{% endif %}
+							{% endfor %}
+						{% if (all_rating_reviews_status and article_review_status) %}
+							<span class="quantity-reviews"><a data-placement="right"  data-toggle="tooltip" title="{{ text_reviews_title }}" href="{{ article.href }}#article-review-box">{{ article.reviews }}</a></span>
+						{% endif %}
+						</span>
+					</div>
+					<div class="mod-art-description">{{ article.description }}</div>
+				</div>
+			</div>
+			</div>
+		{% endfor %}
+	</div>
+	</div>
+<script>
+slickSliderModule(".mod_af{{ module }}");
+</script>
+</div>

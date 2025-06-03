@@ -1,0 +1,587 @@
+		<div class="menu-box {% if ((type_header == 3) or (type_header == 4)) %}dflex m_type_header_{{ type_header }}{% else %}col-sm-12 col-md-3 {% endif %}">
+			{% if (items) %}
+			<nav id="menu-vertical" class="btn-group {% if ((type_header == 3) or (type_header == 4)) %}col-md-3{% else %}btn-block{% endif %}">
+				{% if ((type_header == 1) or (type_header == 2)) %}
+				<button type="button" class="btn btn-menu btn-block dropdown-toggle hidden-xs hidden-sm" data-toggle="dropdown">
+					{% if (design_icon_menu is defined and (design_icon_menu == 1)) %}
+					<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="18" fill="none" viewBox="0 0 22 18"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 2h18M2 9h18M2 16h18"/></svg>
+					{% else %}
+					<svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 22 22"><path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M12.8 13.25H20m-7.2 3.15H20m-7.2 3.15H20M3 20h5.2a1 1 0 001-1v-5.2a1 1 0 00-1-1H3a1 1 0 00-1 1V19a1 1 0 001 1zM13.8 9.65H19a1 1 0 001-1V3a1 1 0 00-1-1h-5.2a1 1 0 00-1 1v5.65a1 1 0 001 1zM3 9.65h5.2a1 1 0 001-1V3a1 1 0 00-1-1H3a1 1 0 00-1 1v5.65a1 1 0 001 1z"/></svg>
+					{% endif %}
+					<span class="text-category">{{ text_category }}</span>
+					<svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg" width="7" height="5" fill="none" viewBox="0 0 7 5">
+						<path fill="#FFF" fill-rule="evenodd" d="M3.174 2.856a.5.5 0 00.707-.004L6.144.562a.5.5 0 01.712.704L4.592 3.555a1.5 1.5 0 01-2.121.012L.148 1.27A.5.5 0 11.852.559l2.322 2.297z" clip-rule="evenodd"/>
+					</svg>
+				</button>
+				{% endif %}
+				<ul id="menu-vertical-list" class="dropdown-menu hidden-xs hidden-sm">
+					{% for item in items %}
+						{% if (item.additional_menu == "left") %}
+						{% if (item.children) %}
+							<li class="dropdown{% if (item.thumb) %} have-icon{% endif %}">
+							<a href="{{ item.href }}" {% if (item.new_blank == 1) %} target="_blank" data-target="link" class="parent-link" {% else %}class="parent-link"{% endif %}>
+								{% if (item.thumb) %}
+									<img alt="{{ item.name }}" class="nsmenu-thumb {% if (item.thumb_hover) %}pitem-icon{% endif %}" src="{{ item.thumb}}"/>
+								{% endif %}
+								{% if (item.thumb_hover) %}
+									<img alt="{{ item.name }}" class="nsmenu-thumb hitem-icon" src="{{ item.thumb_hover}}"/>
+								{% endif %}
+								<div class="item-name{% if (item.thumb) %} himg{% endif %}">{{ item.name }}</div>
+								{% if (item.dop_info_vm is not empty) %}<div class="item-dop-info{% if (item.thumb) %} himg{% endif %}">{{ item.dop_info_vm }}</div>{% endif %}
+								{% if (item.sticker_parent is not empty) %}
+									<span style="color:#{{ item.spctext }}; background-color:#{{ item.spbg }}" class="cat-label cat-label-label">{{ item.sticker_parent }}</span>
+								{% endif %}
+								<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="5" height="7" fill="none" viewBox="0 0 5 7"><path fill="#000" fill-rule="evenodd" d="M2.856 3.826a.5.5 0 00-.004-.707L.562.856a.5.5 0 01.704-.712l2.289 2.264a1.5 1.5 0 01.012 2.121L1.27 6.852a.5.5 0 11-.711-.704l2.297-2.322z" clip-rule="evenodd"/></svg>
+							</a>
+						{% if ((item.type == "freelink") or (item.type == "category")) %}
+						{% if (item.subtype == "simple") %}
+						  <div class="ns-dd dropdown-menu-simple nsmenu-type-category-simple">
+								<ul class="list-unstyled nsmenu-haschild">
+									{% for child in item.children %}
+									<li {% if (child.children is not empty) %} class="nsmenu-issubchild"{% endif %}>
+										<a href="{{ child.href }}">{{ child.name }}
+										{% if (child.children is not empty) %}
+											<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="5" height="7" fill="none" viewBox="0 0 5 7"><path fill="#000" fill-rule="evenodd" d="M2.856 3.826a.5.5 0 00-.004-.707L.562.856a.5.5 0 01.704-.712l2.289 2.264a1.5 1.5 0 01.012 2.121L1.27 6.852a.5.5 0 11-.711-.704l2.297-2.322z" clip-rule="evenodd"/></svg>
+										{% endif %}
+										</a>
+										{% if (child.children is not empty) %}
+											<div class="nsmenu-ischild nsmenu-ischild-simple">
+												<ul class="list-unstyled">
+													{% for subchild in child.children %}
+														{% if (item.type == "freelink") %}
+															<li><a href="{{ subchild.link }}">{{ subchild.title }}</a></li>
+														{% else %}
+															<li {% if (subchild.child_4level_data is not empty) %}class="ischild_4level_simple"{% endif %}>
+																<a href="{{ subchild.href }}">{{ subchild.name }}
+																{% if (subchild.child_4level_data is not empty) %}
+																	<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="5" height="7" fill="none" viewBox="0 0 5 7"><path fill="#000" fill-rule="evenodd" d="M2.856 3.826a.5.5 0 00-.004-.707L.562.856a.5.5 0 01.704-.712l2.289 2.264a1.5 1.5 0 01.012 2.121L1.27 6.852a.5.5 0 11-.711-.704l2.297-2.322z" clip-rule="evenodd"/></svg>
+																{% endif %}
+																</a>
+																{% if (subchild.child_4level_data is not empty) %}
+																	<div class="child_4level_simple">
+																		<ul class="list-unstyled">
+																			{% for child_4level_data in subchild.child_4level_data %}
+																				<li><a href="{{ child_4level_data.href }}">{{ child_4level_data.name }}</a></li>
+																			{% endfor %}
+																		</ul>
+																	</div>
+																{% endif %}
+															</li>
+														{% endif %}
+													{% endfor %}
+												</ul>
+											</div>
+										{% endif %}
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+							{% endif %}
+
+							{% if ((item.subtype == "full_3_level") or (item.subtype == "full_3_level_image")) %}
+							  <div class="ns-dd dropdown-menu-simple nsmenu-type-category-simple">
+									<ul class="list-unstyled nsmenu-haschild">
+										{% for child in item.children %}
+										<li {% if (child.children is not empty) %} class="nsmenu-issubchild massonry-item"{% endif %}>
+											<a href="{{ child.href }}">{% if (child.children is not empty) %}<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="5" height="7" fill="none" viewBox="0 0 5 7"><path fill="#000" fill-rule="evenodd" d="M2.856 3.826a.5.5 0 00-.004-.707L.562.856a.5.5 0 01.704-.712l2.289 2.264a1.5 1.5 0 01.012 2.121L1.27 6.852a.5.5 0 11-.711-.704l2.297-2.322z" clip-rule="evenodd"/></svg>{% endif %}{{ child.name }}</a>
+											<ul class="list-unstyled nsmenu-ischild nsmenu-full3level">
+											{% if (child.children is not empty) %}
+											<div class="box-masonry">
+												{% for subchild in child.children %}
+												<div class="nsmenu-parent-block{% if (subchild.child_4level_data is not empty) %} nsmenu-issubchild{% endif %} col-sm-6 col-md-6">
+													{% if ((item.subtype == "full_3_level_image") and (subchild.thumb_3lv != '')) %}
+													<a class="nsmenu-parent-img" href="{{ subchild.href }}"><img src="{{ subchild.thumb_3lv }}" alt="{{ subchild.name }}"/></a>
+													{% endif %}
+													{% if (item.type == "freelink") %}
+														<a class="nsmenu-parent-title" href="{{ subchild.link }}">{{ subchild.title }}</a>
+													{% else %}
+														<a class="nsmenu-parent-title" href="{{ subchild.href }}">{{ subchild.name }}</a>
+														<ul class="list-unstyled level4_full">
+															{% for child_4level_data in subchild.child_4level_data %}
+																<li><a href="{{ child_4level_data.href }}">{{ child_4level_data.name }}</a></li>
+															{% endfor %}
+														</ul>
+													{% endif %}
+												</div>
+												{% endfor %}
+											</div>
+											{% endif %}
+											</ul>
+										</li>
+										{% endfor %}
+									</ul>
+								</div>
+							{% endif %}
+
+								{% if ((item.subtype == "full_image") or (item.subtype == "full")) %}
+								<div class="ns-dd dropdown-menu-full-image nsmenu-type-category-full-image box-col-3">
+									<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+											{% for children in item.children|batch(item.ac_number) %}
+											<div class="row">
+												{% for child in children %}
+												<div class="nsmenu-parent-block{% if (child.children is not empty) %} nsmenu-issubchild{% endif %} col-md-{{ item.number_column_sc }} col-sm-12">
+													{% if (item.subtype == "full_image" and (child.thumb != '')) %}
+													<a class="nsmenu-parent-img" href="{{ child.href }}"><img src="{{ child.thumb }}" alt="{{ child.name }}"/></a>
+													{% endif %}
+													<a class="nsmenu-parent-title" href="{{ child.href }}">
+													{{ child.name }}
+													</a>
+													{% if (child.children is not empty) %}
+														<ul class="list-unstyled nsmenu-ischild">
+															{% for subchild in child.children %}
+																{% if (item.type == "freelink") %}
+																	<li><a href="{{ subchild.link }}">{{ subchild.title }}</a></li>
+																{% else %}
+																	<li><a href="{{ subchild.href }}">{{ subchild.name }}</a></li>
+																{% endif %}
+															{% endfor %}
+														</ul>
+													{% endif %}
+												</div>
+												{% endfor %}
+											</div>
+											{% endfor %}
+									</div>
+									{% if (item.add_html) %}
+									<div class="col-sm-4 menu-add-html">
+										{{ item.add_html }}
+									</div>
+									{% endif %}
+								</div>
+								{% endif %}
+								{% endif %}
+
+								{% if ((item.type == "freelink") or (item.type == "category")) %}
+								{% if ((item.subtype == "full_masonry") or (item.subtype == "full_image_masonry")) %}
+								<div class="ns-dd dropdown-menu-full-image nsmenu-type-category-full-image box-col-3">
+										<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+											<div class="row-flex-masonry">
+												{% for child in item.children %}
+												<div class="nsmenu-parent-block{% if (child.children is not empty) %} nsmenu-issubchild{% endif %} col-sm-12 col-md-{{ item.number_column_sc }}">
+													{% if (item.subtype == "full_image_masonry" and (child.thumb != '')) %}
+													<a class="nsmenu-parent-img" href="{{ child.href }}"><img src="{{ child.thumb }}" alt="{{ child.name }}"/></a>
+													{% endif %}
+													<a class="nsmenu-parent-title" href="{{ child.href }}">
+													{{ child.name }}
+													</a>
+													{% if (child.children is not empty) %}
+														<ul class="list-unstyled nsmenu-ischild">
+															{% for subchild in child.children %}
+																{% if (item.type == "freelink") %}
+																	<li><a href="{{ subchild.link }}">{{ subchild.title }}</a></li>
+																{% else %}
+																	<li><a href="{{ subchild.href }}">{{ subchild.name }}</a></li>
+																{% endif %}
+															{% endfor %}
+														</ul>
+													{% endif %}
+
+												</div>
+												{% endfor %}
+											</div>
+										</div>
+										{% if (item.add_html) %}
+										<div class="col-sm-4 menu-add-html">
+											{{ item.add_html }}
+										</div>
+										{% endif %}
+								</div>
+								{% endif %}
+								{% endif %}
+
+									{% if (item.type == "html") %}
+									  <div class="ns-dd dropdown-menu-html-block nsmenu-type-html box-col-3">
+											<div class="nsmenu-html-block">
+												{{ item.html }}
+											</div>
+									   </div>
+									{% endif %}
+
+									{% if (item.type == "manufacturer") %}
+										<div class="ns-dd dropdown-menu-manufacturer nsmenu-type-manufacturer box-col-3">
+											{% if (item.type_manuf == "type_alphabet") %}
+													<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+														{% set num_columns = item.add_html ? 4 : 6 %}
+														{% if (item.result_manufacturer_a) %}
+															{% for manufacturer_a in item.result_manufacturer_a|batch(num_columns) %}
+															<div class="row">
+															{% for man_alphabet in manufacturer_a %}
+																{% if (man_alphabet.manufacturer) %}
+																	{% for manufacturers in man_alphabet.manufacturer|batch(num_columns) %}
+																		<div class="nsmenu-parent-block col-md-{% if (item.add_html) %}3{% else %}2{% endif %} col-sm-12">
+																		<span class="name-manuf-a">{{ man_alphabet.name }}</span>
+																			{% for manufacturer in manufacturers %}
+																				<div class="manuf-res"><a data-toggle="tooltip" title="<img src='{{ manufacturer.thumb }}' alt='{{ manufacturer.name }}' title='{{ manufacturer.name }}' />" href="{{ manufacturer.href }}">{{ manufacturer.name }}</a></div>
+																			{% endfor %}
+																		</div>
+																	{% endfor %}
+
+																{% endif %}
+															{% endfor %}
+															</div>
+															{% endfor %}
+														{% endif %}
+													</div>
+													{% if (item.add_html) %}
+													<div class="col-sm-4 menu-add-html">
+														{{ item.add_html }}
+													</div>
+													{% endif %}
+												{% endif %}
+												{% if (item.type_manuf == "type_image") %}
+													<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+													 {% set num_columns = item.add_html ? 4 : 6 %}
+														{% for children in item.children|batch(num_columns) %}
+														<div class="row">
+															{% for child in children %}
+															<div class="nsmenu-parent-block col-md-{% if (item.add_html) %}3{% else %}2{% endif %} col-sm-12">
+																<a class="nsmenu-parent-img" href="{{ child.href }}"><img src="{{ child.thumb }}" alt="{{ child.name }}" title="{{ child.name }}" /></a>
+																<a class="nsmenu-parent-title" href="{{ child.href }}">{{ child.name }}</a>
+															</div>
+															{% endfor %}
+														</div>
+														{% endfor %}
+													</div>
+													{% if (item.add_html) %}
+													<div class="col-sm-4 menu-add-html">
+														{{ item.add_html }}
+													</div>
+													{% endif %}
+												{% endif %}
+										</div>
+									{% endif %}
+
+									{% if (item.type == "information") %}
+										<div class="ns-dd dropdown-menu-information nsmenu-type-information">
+											<div class="nsmenu-haschild">
+												<ul class="list-unstyled nsmenu-haschild">
+													{% for child in item.children %}
+														<li><a href="{{ child.href }}">{{ child.name }}</a></li>
+													{% endfor %}
+												</ul>
+											</div>
+										</div>
+									{% endif %}
+
+										{% if (item.type == "product") %}
+											<div class="ns-dd dropdown-menu-product nsmenu-type-product box-col-3">
+												<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+												 {% set num_columns = item.add_html ? 4 : 6 %}
+													{% for children in item.children|batch(num_columns) %}
+													<div class="dflex">
+														{% for child in children %}
+														<div class="dflex flex-column nsmenu-parent-block col-md-{% if (item.add_html) %}3{% else %}2{% endif %} col-sm-12">
+															<a class="nsmenu-parent-img" href="{{ child.href }}"><img src="{{ child.thumb }}" alt="{{ child.name }}" title="{{ child.name }}" /></a>
+															<a class="nsmenu-parent-title" href="{{ child.href }}">{{ child.name }}</a>
+															<div class="price">
+																{% if (not child.special) %}
+																	{{ child.price }}
+																{% else %}
+																	<span class="price-old">{{ child.price }}</span>
+																	<span class="price-new">{{ child.special }}</span>
+																{% endif %}
+															</div>
+														</div>
+														{% endfor %}
+													</div>
+													{% endfor %}
+												</div>
+												{% if (item.add_html) %}
+												<div class="col-sm-4 menu-add-html">
+													{{ item.add_html }}
+												</div>
+												{% endif %}
+											</div>
+										{% endif %}
+							</li>
+						{% else %}
+								<li {% if (item.thumb or (item.additional_menu == "additional")) %}class="{% if (item.thumb) %}have-icon{% endif %}{% if (item.additional_menu == "additional") %} hidden-md hidden-lg{% endif %}"{% endif %}>
+									<a {% if (item.new_blank == 1) %} target="_blank" data-target="link" {% else %} class="dropdown-img" {% endif %} href="{{ item.href }}">
+										{% if (item.thumb) %}
+											<img alt="{{ item.name }}" class="nsmenu-thumb {% if (item.thumb_hover) %}pitem-icon{% endif %}" src="{{ item.thumb}}"/>
+										{% endif %}
+										{% if (item.thumb_hover) %}
+											<img alt="{{ item.name }}" class="nsmenu-thumb hitem-icon" src="{{ item.thumb_hover}}"/>
+										{% endif %}
+										<div class="item-name{% if (item.thumb) %} himg{% endif %}">{{ item.name }}</div>
+										{% if (item.dop_info_vm is not empty) %}<div class="item-dop-info{% if (item.thumb) %} himg{% endif %}">{{ item.dop_info_vm }}</div>{% endif %}
+										{% if (item.sticker_parent is not empty) %}
+											<span style="color:#{{ item.spctext }}; background-color:#{{ item.spbg }}" class="cat-label cat-label-label">{{ item.sticker_parent }}</span>
+										{% endif %}
+									</a>
+								</li>
+						{% endif %}
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</nav>
+				{% if ((type_header == 1) or (type_header == 2)) %}
+				{% if (main_menu_mask is defined and (main_menu_mask == 1)) %}
+				<div id="maskMenuHC"></div>
+				{% endif %}
+				{% endif %}
+			{% endif %}
+		</div>
+	{% if ((type_header == 1) or (type_header == 2) and (swap_search_dmenu == 0)) %}
+		{% if (additional) %}
+		<div class="{% if (type_header == 1) %}col-md-9{% else %}col-md-8{% endif %} hidden-xs hidden-sm clearfix dop-right-menu">
+		<nav id="additional-menu" class="navbar hmenu_type">
+		<div>
+		  <ul class="nav navbar-nav" style="visibility: hidden;overflow:hidden;">
+			{% for item in items %}
+				{% if (item.children) %}
+				{% if (item.additional_menu == "additional") %}
+				<li class="dropdown">
+					<a href="{{ item.href }}" {% if (item.new_blank == 1) %}target="_blank" data-target="link"{% else %}class="dropdown-toggle dropdown-img" data-toggle="dropdown"{% endif %}>
+						{% if (item.thumb) %}<img alt="{{ item.name }}" class="nsmenu-thumb {% if (item.thumb_hover) %}pitem-icon{% endif %}" src="{{ item.thumb}}"/>{% endif %}
+						{% if (item.thumb_hover) %}<img alt="{{ item.name }}" class="nsmenu-thumb hitem-icon" src="{{ item.thumb_hover}}"/>{% endif %}
+						{% if (item.sticker_parent is not empty) %}<span style="color:#{{ item.spctext }}; background-color:#{{ item.spbg }}" class="cat-label cat-label-label">{{ item.sticker_parent }}</span>{% endif %}
+						{{ item.name }}
+						<svg class="arrow-t" width="7" height="4" viewBox="0 0 7 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M3.17409 2.44145C3.37044 2.63563 3.68704 2.63386 3.88121 2.4375L6.14446 0.148615C6.33862 -0.0477431 6.6552 -0.049525 6.85156 0.144635C7.04792 0.338795 7.0497 0.655372 6.85554 0.851731L4.59228 3.14061C4.00977 3.72971 3.05999 3.73503 2.47093 3.15248L0.14842 0.855689C-0.0479259 0.661516 -0.0496879 0.344939 0.144485 0.148593C0.338657 -0.0477531 0.655234 -0.0495152 0.85158 0.144657L3.17409 2.44145Z" fill="black"/>
+						</svg></a>
+							{% if ((item.type == "freelink") or (item.type == "category")) %}
+							{% if (item.subtype == "simple") %}
+							{% if (item.additional_menu == "additional") %}
+							 <div class="dropdown-menu nsmenu-type-category-simple">
+								<ul class="list-unstyled nsmenu-haschild">
+									{% for child in item.children %}
+									<li {% if (child.children is not empty) %}class="nsmenu-issubchild"{% endif %}>
+										<a href="{{ child.href }}">{% if (child.children is not empty) %}<svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="5" height="7" fill="none" viewBox="0 0 5 7"><path fill="#000" fill-rule="evenodd" d="M2.856 3.826a.5.5 0 00-.004-.707L.562.856a.5.5 0 01.704-.712l2.289 2.264a1.5 1.5 0 01.012 2.121L1.27 6.852a.5.5 0 11-.711-.704l2.297-2.322z" clip-rule="evenodd"/></svg>{% endif %}{{ child.name }}</a>
+										{% if (child.children is not empty) %}
+										<ul class="list-unstyled nsmenu-ischild nsmenu-ischild-simple">
+										 {% for subchild in child.children %}
+											{% if (item.type == "freelink") %}
+												<li><a href="{{ subchild.link }}">{{ subchild.title }}</a></li>
+											{% else %}
+												<li><a href="{{ subchild.href }}">{{ subchild.name }}</a></li>
+											{% endif %}
+
+										{% endfor %}
+										</ul>
+										{% endif %}
+									</li>
+									{% endfor %}
+								</ul>
+								</div>
+							{% endif %}
+							{% endif %}
+							{% endif %}
+							{% if ((item.type == "freelink") or (item.type == "category")) %}
+							{% if ((item.subtype == "full_image") or (item.subtype == "full") ) %}
+							{% if (item.additional_menu == "additional") %}
+								<div class="dropdown-menu nsmenu-type-category-full-image nsmenu-bigblock-additional">
+										<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+											{% for children in item.children|batch(item.ac_number) %}
+											<div class="row">
+												{% for child in children %}
+												<div class="nsmenu-parent-block{% if (child.children is not empty) %} nsmenu-issubchild{% endif %} col-md-{{ item.number_column_sc }} col-sm-12">
+													{% if (item.subtype == "full_image" and (child.thumb != '')) %}
+													<a class="nsmenu-parent-img" href="{{ child.href }}"><img src="{{ child.thumb }}" alt="{{ child.name }}"/></a>
+													{% endif %}
+													<a class="nsmenu-parent-title" href="{{ child.href }}">{{ child.name }}</a>
+													{% if (child.children is not empty) %}
+														<ul class="list-unstyled nsmenu-ischild">
+															{% for subchild in child.children %}
+																{% if (item.type == "freelink") %}
+																	<li><a href="{{ subchild.link }}">{{ subchild.title }}</a></li>
+																{% else %}
+																	<li><a href="{{ subchild.href }}">{{ subchild.name }}</a></li>
+																{% endif %}
+															{% endfor %}
+														</ul>
+													{% endif %}
+												</div>
+												{% endfor %}
+											</div>
+											{% endfor %}
+										</div>
+										{% if (item.add_html) %}
+										<div class="col-sm-4 menu-add-html">
+											{{ item.add_html }}
+										</div>
+										{% endif %}
+								</div>
+								{% endif %}
+								{% endif %}
+								{% endif %}
+								{% if (item.additional_menu == "additional") %}
+								{% if ((item.type == "freelink") or (item.type == "category")) %}
+								{% if ((item.subtype == "full_masonry") or (item.subtype == "full_image_masonry") or (item.subtype == "full_3_level") or (item.subtype == "full_3_level_image")) %}
+								<div class="dropdown-menu nsmenu-type-category-full-image nsmenu-bigblock-additional">
+										<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+											<div class="row-flex-masonry">
+												{% for child in item.children %}
+												<div class="nsmenu-parent-block{% if (child.children is not empty) %} nsmenu-issubchild{% endif %} col-sm-12 col-md-{{ item.number_column_sc }}">
+													{% if (item.subtype == "full_image_masonry" and (child.thumb != '')) %}
+													<a class="nsmenu-parent-img" href="{{ child.href }}"><img src="{{ child.thumb }}" alt="{{ child.name }}"/></a>
+													{% endif %}
+													<a class="nsmenu-parent-title" href="{{ child.href }}">
+													{{ child.name }}
+													</a>
+													{% if (child.children is not empty) %}
+														<ul class="list-unstyled nsmenu-ischild">
+															{% for subchild in child.children %}
+																{% if (item.type == "freelink") %}
+																	<li><a href="{{ subchild.link }}">{{ subchild.title }}</a></li>
+																{% else %}
+																	<li><a href="{{ subchild.href }}">{{ subchild.name }}</a></li>
+																{% endif %}
+															{% endfor %}
+														</ul>
+													{% endif %}
+
+												</div>
+												{% endfor %}
+											</div>
+										</div>
+										{% if (item.add_html) %}
+										<div class="col-sm-4 menu-add-html">
+											{{ item.add_html }}
+										</div>
+										{% endif %}
+								</div>
+								{% endif %}
+								{% endif %}
+								{% endif %}
+								{% if (item.type == "html") %}
+								{% if (item.additional_menu == "additional") %}
+								  <div class="dropdown-menu nsmenu-type-html nsmenu-bigblock-additional">
+										<div class="nsmenu-html-block">
+											{{ item.html }}
+										</div>
+								   </div>
+								{% endif %}
+								{% endif %}
+								{% if (item.type == "manufacturer") %}
+								{% if (item.additional_menu == "additional") %}
+									<div class="dropdown-menu nsmenu-type-manufacturer nsmenu-bigblock-additional">
+										{% if (item.type_manuf == "type_alphabet") %}
+											<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+												{% set num_columns = item.add_html ? 4 : 6 %}
+												{% if (item.result_manufacturer_a) %}
+													{% for manufacturer_a in item.result_manufacturer_a|batch(num_columns) %}
+													<div class="row">
+													{% for man_alphabet in manufacturer_a %}
+														{% if (man_alphabet.manufacturer) %}
+															{% for manufacturers in man_alphabet.manufacturer|batch(num_columns) %}
+																<div class="nsmenu-parent-block col-md-{% if (item.add_html) %}3{% else %}2{% endif %} col-sm-12">
+																<span class="name-manuf-a">{{ man_alphabet.name }}</span>
+																	{% for manufacturer in manufacturers %}
+																		<div class="manuf-res"><a data-toggle="tooltip" title="<img src='{{ manufacturer.thumb }}' alt='{{ manufacturer.name }}' title='{{ manufacturer.name }}' />" href="{{ manufacturer.href }}">{{ manufacturer.name }}</a></div>
+																	{% endfor %}
+																</div>
+															{% endfor %}
+
+														{% endif %}
+													{% endfor %}
+													</div>
+													{% endfor %}
+												{% endif %}
+											</div>
+											{% if (item.add_html) %}
+											<div class="col-sm-4 menu-add-html">
+												{{ item.add_html }}
+											</div>
+											{% endif %}
+										{% endif %}
+										{% if (item.type_manuf == "type_image") %}
+											<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+											 {% set num_columns = item.add_html ? 4 : 6 %}
+												{% for children in item.children|batch(num_columns) %}
+												<div class="row">
+													{% for child in children %}
+													<div class="nsmenu-parent-block col-md-{% if (item.add_html) %}3{% else %}2{% endif %} col-sm-12">
+														<a class="nsmenu-parent-img" href="{{ child.href }}"><img src="{{ child.thumb }}" alt="{{ child.name }}" /></a>
+														<a class="nsmenu-parent-title" href="{{ child.href }}">{{ child.name }}</a>
+													</div>
+													{% endfor %}
+												</div>
+												{% endfor %}
+											</div>
+											{% if (item.add_html) %}
+											<div class="col-sm-4 menu-add-html">
+												{{ item.add_html }}
+											</div>
+											{% endif %}
+										{% endif %}
+									</div>
+								{% endif %}
+								{% endif %}
+
+								{% if (item.type == "information") %}
+								{% if (item.additional_menu == "additional") %}
+									<div class="dropdown-menu nsmenu-type-information">
+										<ul class="list-unstyled nsmenu-haschild">
+											{% for child in item.children %}
+												<li><a href="{{ child.href }}">{{ child.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+								{% endif %}
+								{% endif %}
+
+								{% if (item.type == "product") %}
+								{% if (item.additional_menu == "additional") %}
+									<div class="dropdown-menu nsmenu-type-product nsmenu-bigblock-additional">
+										<div class="col-sm-{% if (item.add_html) %}8{% else %}12{% endif %} nsmenu-haschild">
+										 {% set num_columns = item.add_html ? 4 : 6 %}
+											{% for children in item.children|batch(num_columns) %}
+											<div class="dflex">
+												{% for child in children %}
+												<div class="dflex flex-column nsmenu-parent-block col-md-{% if (item.add_html) %}3{% else %}2{% endif %} col-sm-12">
+													<a class="nsmenu-parent-img" href="{{ child.href }}"><img src="{{ child.thumb }}" alt="{{ child.name }}" /></a>
+													<a class="nsmenu-parent-title" href="{{ child.href }}">{{ child.name }}</a>
+													<div class="price">
+														{% if (not child.special) %}
+															{{ child.price }}
+														{% else %}
+															<span class="price-old">{{ child.price }}</span>
+															<span class="price-new">{{ child.special }}</span>
+														{% endif %}
+													</div>
+												</div>
+												{% endfor %}
+											</div>
+											{% endfor %}
+										</div>
+										{% if (item.add_html) %}
+											<div class="col-sm-4 menu-add-html">
+												{{ item.add_html }}
+											</div>
+										{% endif %}
+									</div>
+								{% endif %}
+								{% endif %}
+					</li>
+					{% endif %}
+				{% else %}
+					{% if (item.additional_menu == "additional") %}
+						<li><a {% if (item.new_blank == 1) %}target="_blank" data-target="link"{% endif %} class="{% if (not item.thumb) %}no-img-parent-link{% endif %}" href="{{ item.href }}">
+						{% if (item.thumb) %}
+							<img alt="{{ item.name }}" class="nsmenu-thumb {% if (item.thumb_hover) %}pitem-icon{% endif %}" src="{{ item.thumb}}"/>
+						{% endif %}
+						{% if (item.thumb_hover) %}
+							<img alt="{{ item.name }}" class="nsmenu-thumb hitem-icon" src="{{ item.thumb_hover}}"/>
+						{% endif %}
+						{% if (item.sticker_parent is not empty) %}
+							<span style="color:#{{ item.spctext }}; background-color:#{{ item.spbg }}" class="cat-label cat-label-label">{{ item.sticker_parent }}</span>
+						{% endif %}
+						{{ item.name }}</a></li>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		  </ul>
+		  </div>
+		<div class="dop-menu-show_more type1">
+			<span class="prev-m"><i class="fa fa-angle-left"></i></span>
+			<span class="total-sections"></span>
+			<span class="next-m"><i class="fa fa-angle-right"></i></span>
+		</div>
+	   </nav>
+	    {% if (main_menu_mask is defined and (main_menu_mask == 1)) %}
+		  <div id="maskMenuDop"></div>
+		{% endif %}
+	  </div>
+	  {% endif %}
+	  {% endif %}

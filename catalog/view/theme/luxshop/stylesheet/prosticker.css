@@ -1,0 +1,278 @@
+.product-price .pro_sticker,
+.product-price .box-sticker {
+  display: none !important;
+}
+.sticker_main_right_block {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.sticker_main_right_block > div.pro_sticker {
+  margin-right: 10px;
+  transform: translateY(0px);
+}
+div.pro_sticker img {
+padding-top: 0px !important;
+}
+
+@media (max-width: 768px) {
+.pro_sticker img {
+  max-width: 50%;
+}
+#image-box .pro_sticker img {max-width: 100%;}
+.sticker_main_right_block .pro_sticker img {max-width: 100%;}
+}
+div.pro_sticker .popover {
+  color:#222;
+  min-width: 120px;
+}
+.pro_sticker.topleft{
+  left:15px;
+  text-align: left;
+  margin-left: 0px !important;
+  z-index: 12;
+}
+.pro_sticker.topright{
+  right:15px;
+  text-align: right;
+}
+.pro_sticker.bottomright{
+  right:15px;
+  text-align: right;
+  bottom: 15px;
+  top:auto;
+  z-index: 13;
+}
+.pro_sticker.bottomleft{
+  left:15px;
+  text-align: right;
+  bottom: 15px;
+  top:auto;
+  z-index: 13;
+}
+.pro_sticker.bottomcenter{
+  right:0px;
+  left:0px;
+  text-align: center;
+  bottom: 15px;
+  top:auto;
+  z-index: 11;
+}
+.pro_sticker.centercenter{
+  right:0px;
+  left:0px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 11;
+}
+.pro_sticker.centerright{
+  text-align: right;
+  right:15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pro_sticker.centerleft{
+  text-align: right;
+  left:15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pro_sticker.topcenter {
+  margin-top: 0px;
+  margin-left: 0px !important;
+  display: block;
+  left: 0px;
+  right: 0px;
+  z-index: 11;
+}
+
+.topleft {text-align:left;}
+.bsl.box-sticker{line-height: 14px;}
+.box-sticker .sticker_label {
+  font-size: 11px;
+  padding: 4px 10px;
+  position: relative;
+  line-height: 14px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .box-sticker .sticker_label {
+    padding: 2px 10px;
+  }
+}
+.box-sticker {position: absolute;}
+.box-sticker.bottomcenter {
+  bottom:15px;
+  left:0px;
+  right:0px;
+}
+.box-sticker.bottomcenter ~ .box-sticker.bottomcenter{
+  bottom:34px;
+}
+.box-sticker.bottomcenter ~ .box-sticker.bottomcenter ~ .box-sticker.bottomcenter{
+  bottom:53px;
+}
+.bsl.box-sticker.bottomcenter ~ .box-sticker.bottomcenter ~ .box-sticker.bottomcenter{
+  bottom:53px;
+}
+.box-sticker.bottomcenter ~ .box-sticker.bottomcenter ~ .box-sticker.bottomcenter ~ .box-sticker.bottomcenter{
+  bottom:76px;
+}
+.box-sticker.bottomcenter ~ .box-sticker.bottomcenter ~ .box-sticker.bottomcenter ~ .box-sticker.bottomcenter ~ .box-sticker.bottomcenter{
+  bottom:100px;
+}
+
+.box-sticker.topcenter {
+  top:5px;
+  left:0px;
+  right:0px;
+}
+.box-sticker.topcenter ~ .box-sticker.topcenter{
+  top:29px;
+}
+.bsl.box-sticker.topcenter ~ .box-sticker.topcenter ~ .box-sticker.topcenter{
+  top:52px;
+}
+.box-sticker.topcenter ~ .box-sticker.topcenter ~ .box-sticker.topcenter{
+  top:52px;
+}
+.box-sticker.topcenter ~ .box-sticker.topcenter ~ .box-sticker.topcenter ~ .box-sticker.topcenter{
+  top:75px;
+}
+.box-sticker.topcenter ~ .box-sticker.topcenter ~ .box-sticker.topcenter ~ .box-sticker.topcenter ~ .box-sticker.topcenter{
+  top:99px;
+}
+.box-sticker.centercenter {
+  left:0px;
+  right:0px;
+  top:50%;
+}
+.box-sticker.centercenter ~ .box-sticker.centercenter{
+  margin-top:-22px;
+}
+.bsl.box-sticker.centercenter ~ .box-sticker.centercenter ~ .box-sticker.centercenter{
+  margin-top:22px;
+}
+.box-sticker.centercenter ~ .box-sticker.centercenter ~ .box-sticker.centercenter ~ .box-sticker.centercenter{
+  margin-top:44px;
+}
+
+.box-sticker.topleft {
+  top:15px;
+  left:15px;
+}
+.box-sticker.topright {
+  top:15px;
+  right:15px;
+}
+.box-sticker.bottomright {
+  bottom:15px;
+  right:15px;
+}
+.box-sticker.bottomleft {
+  bottom:15px;
+  left:15px;
+}
+
+.box-sticker.bottomright ~ .box-sticker.bottomright,
+.box-sticker.bottomleft ~ .box-sticker.bottomleft{
+  bottom:44px;
+}
+.bsl.box-sticker.bottomright ~ .box-sticker.bottomright,
+.bsl.box-sticker.bottomleft ~ .box-sticker.bottomleft{
+  bottom:44px;
+}
+.box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright,
+.box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft{
+  bottom:73px;
+}
+.bsl.box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright,
+.bsl.box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft{
+  bottom:73px;
+}
+.box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright,
+.box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft{
+  bottom:102px;
+}
+.bsl.box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright,
+.bsl.box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft{
+  bottom:102px;
+}
+.box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright,
+.box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft{
+  bottom:131px;
+}
+.bsl.box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright ~ .box-sticker.bottomright,
+.bsl.box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft ~ .box-sticker.bottomleft{
+  bottom:131px;
+}
+
+.box-sticker.topleft ~ .box-sticker.topleft,
+.box-sticker.topright ~ .box-sticker.topright{
+  top:44px;
+}
+.bsl.box-sticker.topleft ~ .box-sticker.topleft,
+.bsl.box-sticker.topright ~ .box-sticker.topright{
+  top:44px;
+}
+.box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft,
+.box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright{
+  top:73px;
+}
+.bsl.box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft,
+.bsl.box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright{
+  top:73px;
+}
+.box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft,
+.box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright{
+  top:102px;
+}
+.bsl.box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft,
+.bsl.box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright{
+  top:102px;
+}
+.box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft,
+.box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright{
+  top:131px;
+}
+.bsl.box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft ~ .box-sticker.topleft,g245
+.bsl.box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright ~ .box-sticker.topright{
+  top:131px;
+}
+
+.box-sticker.centerleft {
+  top:50%;
+  left:15px;
+}
+.box-sticker.centerright {
+  top:50%;
+  right:15px;
+}
+
+
+.box-sticker.centerleft ~ .box-sticker.centerleft,
+.box-sticker.centerright ~ .box-sticker.centerright{
+  top:calc(50% + 29px);
+}
+.bsl.box-sticker.centerleft ~ .box-sticker.centerleft,
+.bsl.box-sticker.centerright ~ .box-sticker.centerright{
+  top:calc(50% + 29px);
+}
+.box-sticker.centerleft ~ .box-sticker.centerleft ~ .box-sticker.centerleft,
+.box-sticker.centerright ~ .box-sticker.centerright ~ .box-sticker.centerright{
+  top:calc(50% + 58px);
+}
+.bsl.box-sticker.centerleft ~ .box-sticker.centerleft ~ .box-sticker.centerleft,
+.bsl.box-sticker.centerright ~ .box-sticker.centerright ~ .box-sticker.centerright{
+  top:calc(50% + 58px);
+}
+.box-sticker.centerleft ~ .box-sticker.centerleft ~ .box-sticker.centerleft ~ .box-sticker.centerleft,
+.box-sticker.centerright ~ .box-sticker.centerright ~ .box-sticker.centerright ~ .box-sticker.centerright{
+  top:calc(50% + 88px);
+}
+.bsl.box-sticker.centerleft ~ .box-sticker.centerleft ~ .box-sticker.centerleft ~ .box-sticker.centerleft,
+.bsl.box-sticker.centerright ~ .box-sticker.centerright ~ .box-sticker.centerright ~ .box-sticker.centerright{
+  top:calc(50% + 88px);
+}

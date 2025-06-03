@@ -1,0 +1,50 @@
+<ul class="nav nav-tabs" id="contact-language">
+	{% for language in languages %}
+		<li><a href="#contact-language{{ language['language_id'] }}" data-toggle="tab"><img src="language/{{ language['code'] }}/{{ language['code'] }}.png" title="{{ language['name'] }}" /> {{ language['name'] }}</a></li>
+	{% endfor %}
+</ul>
+<div class="tab-content">
+{% for language in languages %}
+	<div class="tab-pane" id="contact-language{{ language['language_id'] }}">
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="input-contact-address{{ language['language_id'] }}">{{ text_contact_address }}</label>
+			<div class="col-sm-6">
+				<textarea class="form-control" name="ls_contacts[{{ language['language_id'] }}][address]" id="input-contact-address{{ language['language_id'] }}">{{ ls_contacts[language['language_id']]['address'] is defined ? ls_contacts[language['language_id']]['address'] : '' }}</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="input-contact-email{{ language['language_id'] }}">{{ text_contact_email }}</label>
+			<div class="col-sm-6">
+				<textarea class="form-control" name="ls_contacts[{{ language['language_id'] }}][email]" id="input-contact-email{{ language['language_id'] }}">{{ ls_contacts[language['language_id']]['email'] is defined ? ls_contacts[language['language_id']]['email'] : '' }}</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="input-contact-phone{{ language['language_id'] }}">{{ text_contact_phone }}</label>
+			<div class="col-sm-6">
+				<textarea class="form-control" name="ls_contacts[{{ language['language_id'] }}][phone]" id="input-contact-phone{{ language['language_id'] }}">{{ ls_contacts[language['language_id']]['phone'] is defined ? ls_contacts[language['language_id']]['phone'] : '' }}</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="input-contact-working-time{{ language['language_id'] }}">{{ text_contact_working_time }}</label>
+			<div class="col-sm-6">
+				<textarea class="form-control" name="ls_contacts[{{ language['language_id'] }}][working_time]" id="input-contact-working-time{{ language['language_id'] }}">{{ ls_contacts[language['language_id']]['working_time'] is defined ? ls_contacts[language['language_id']]['working_time'] : '' }}</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="input-contact-map-code{{ language['language_id'] }}">{{ text_contact_map_code }}</label>
+			<div class="col-sm-6">
+				<textarea class="form-control" name="ls_contacts[{{ language['language_id'] }}][map_code]" id="input-contact-map-code{{ language['language_id'] }}">{{ ls_contacts[language['language_id']]['map_code'] is defined ? ls_contacts[language['language_id']]['map_code'] : '' }}</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+            <label class="col-sm-3 control-label" for="input-contact-image{{ language['language_id'] }}">{{ text_contact_image }}</label>
+            <div class="col-sm-6"><a href="" id="thumb-contact-image{{ language['language_id'] }}" data-toggle="image" class="img-thumbnail"><img src="{{ ls_contacts[language['language_id']]['thumb'] }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+              <input type="hidden" name="ls_contacts[{{ language['language_id'] }}][image]" value="{{ ls_contacts[language['language_id']]['image'] }}" id="input-contact-image{{ language['language_id'] }}" />
+            </div>
+        </div>
+	</div>
+{% endfor %}
+</div>
+<script>
+$('#contact-language a:first').tab('show');
+</script>

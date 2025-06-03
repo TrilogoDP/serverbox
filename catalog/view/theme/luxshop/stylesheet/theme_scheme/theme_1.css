@@ -1,0 +1,98 @@
+.btn-menu,
+.btn-menu-top {
+	background: #00BC52;
+}
+.btn-menu-top.vh3-bl, .btn-menu-top.vh4 {
+	background:#000;
+}
+.btn-menu-top.vh3-bl:hover, .btn-menu-top.vh4:hover,
+.btn-menu-top.vh3-bl:focus, .btn-menu-top.vh4:focus {
+	background: #000;
+	opacity: .9;
+}
+.mob-fix-panel .btn-go-home.active-bg .text-a-icon{
+	color:#00BC52;
+}
+.btn-search {
+	background-color: #00BC52;
+}
+.btn-search:hover, .btn-search:active {
+	background-color: #04A349;
+	color:#fff;
+}
+#menu-vertical.open-mob .btn-menu, #menu-vertical.open .btn-menu, .btn-menu:hover, .btn-menu:active, .btn-menu.active, .btn-menu.disabled,
+ .btn-menu-top.vh3:hover,
+ .btn-menu-top.vh3:focus {
+	background-color: #04A349;
+}
+.wishlist-quantity, .compare-quantity {
+	background: #FCC100;
+	color: #000;
+}
+#cart .products b {
+	background: #FCC100;
+}
+.ms-price .ms-price-cont {
+	background: #00BC52;
+}
+.ms-price .ms-price-from,
+.ms-price .ms-price-text {
+	color:#fff;
+}
+.btn-general {
+	background: #00BC52;
+}
+.btn-general:focus,.btn-general:hover, .btn-general:active{
+	background:#04A349;
+	color:#ffffff;
+	border:0px;
+}
+.container-module .slick-dots li.slick-active button {
+	background-color: #00BC52;
+}
+.footer-ribbon {
+	background-color: #00BC52;
+}
+.footer-ribbon-box::after {
+	background-color: #04A349;
+}
+footer .btn-newsletter {
+	background: #00BC52;
+}
+footer .btn-newsletter:hover, footer .btn-newsletter:active {
+	background: #04A349;
+	color:#fff;
+}
+#popup-callback .btn-callback:focus,
+#popup-callback .btn-callback {
+    background: #00BC52;
+}
+#popup-callback .btn-callback:hover,
+#popup-callback .btn-callback:active{
+    background: #04A349;
+    color:#fff;
+}
+.btn-quickorder,
+.btn-quickorder-one {
+    background-color: #00BC52;
+}
+
+.btn-quickorder:hover, .btn-quickorder:focus,
+.btn-quickorder-one:hover, .btn-quickorder-one:focus{
+    background-color:#04A349;
+    color:#fff;
+}
+#login-form-popup .btn-login:focus, #login-form-popup .btn-login,
+#popup-found-cheaper .btn-found-cheaper:focus,
+#popup-found-cheaper .btn-found-cheaper {
+    background-color: #00BC52;
+}
+#login-form-popup .btn-login:hover, #login-form-popup .btn-login:active,
+#popup-found-cheaper .btn-found-cheaper:hover, #popup-found-cheaper .btn-found-cheaper:active {
+    background-color: #04A349;
+    border:0px;
+    color:#ffffff;
+}
+.mobm-top .btn.btn-menu-contact:after, .mobm-top .btn.btn-menu-viewed:after, .mobm-top .btn.btn-catalog-mobile:after, .mobm-top .btn.btn-menu-info:after {
+	background: #00BC52;
+}
