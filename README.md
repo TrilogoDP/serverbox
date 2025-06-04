@@ -1,2 +1,0 @@
-# serverbox
-test git
