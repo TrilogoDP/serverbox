@@ -1,0 +1,25 @@
+<div class="container-module">
+<div id="slideshow{{ module }}" class="carousel-container">
+  {% for banner in banners %}
+  <div class="item">
+    {% if (banner.link) %}
+    <a href="{{ banner.link }}"><img width="{{ banner.width }}" height="{{ banner.height }}" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" /></a>
+    {% else %}
+    <img width="{{ banner.width }}" height="{{ banner.height }}" src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+<script>
+$("#slideshow{{ module }}").slick({
+  nextArrow: '<div class="slick-mod-arrow next-prod"><svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" fill="none" viewBox="0 0 5 9"><path fill="#000" fill-rule="evenodd" d="M3.065 4.791a.5.5 0 00-.004-.65L.622 1.327a.5.5 0 01.756-.655l2.439 2.814a1.5 1.5 0 01.01 1.952L1.382 8.323a.5.5 0 11-.763-.646L3.065 4.79z" clip-rule="evenodd"/></svg></div>',
+  prevArrow: '<div class="slick-mod-arrow prev-prod"><svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" fill="none" viewBox="0 0 5 9"><path fill="#000" fill-rule="evenodd" d="M1.935 4.209a.5.5 0 00.004.65l2.439 2.814a.5.5 0 01-.756.655L1.183 5.514a1.5 1.5 0 01-.01-1.952L3.618.677a.5.5 0 11.763.646L1.935 4.21z" clip-rule="evenodd"/></svg></div>',
+  infinite: true,
+  adaptiveHeight: false,
+  slidesToShow: 1,
+  fade: true,
+  dots: true,
+  dotsClass: 'slick-dots slideshow',
+});
+</script>
+</div>

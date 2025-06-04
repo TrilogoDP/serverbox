@@ -1,0 +1,59 @@
+<div class="container-module-viewed">
+	{% for product in products %}
+		<div class="product-thumb-viewed dflex flex-wrap h-100">
+			<div class="image col-xs-5 pl-0 pr-0">
+				<a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"/></a>
+			</div>
+			<div class="caption col-xs-7 dflex flex-column flex-grow-1">
+				<div  class="product-name"><a href="{{ product.href }}">{{ product.name }}</a></div>
+				{% if (show_stock_status) %}
+					{% if (product.product_quantity <= 0) %}
+						<div class="stock-status outofstock">{{ product.stock_status }}</div>
+					{% else %}
+						<div class="stock-status instock">
+							<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.68141 3.6147C7.89421 3.43872 8.20938 3.46857 8.38537 3.68137C8.54179 3.87052 8.53559 4.14057 8.38283 4.32184L8.3187 4.38532L4.40526 7.62168L2.72378 6.50696C2.49362 6.35438 2.43073 6.04411 2.58331 5.81395C2.71894 5.60936 2.97916 5.53694 3.19697 5.63054L3.27633 5.67348L4.33905 6.37801L7.68141 3.6147Z" fill="#00BC52"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 5.5C11 2.46243 8.53757 0 5.5 0C2.46243 0 0 2.46243 0 5.5C0 8.53757 2.46243 11 5.5 11C8.53757 11 11 8.53757 11 5.5ZM1 5.5C1 3.01472 3.01472 1 5.5 1C7.98528 1 10 3.01472 10 5.5C10 7.98528 7.98528 10 5.5 10C3.01472 10 1 7.98528 1 5.5Z" fill="#00BC52"/></svg>
+							{{ text_instock }}
+						</div>
+					{% endif %}
+				{% endif %}
+				{% if (setting_module.status_model is defined and (setting_module.status_model == '1')) %}
+					<div class="product-model">{{ product.model}}</div>
+				{% endif %}
+				{% if (product.price) %}
+					<div class="price">
+						{% if (not product.special) %}
+						<span class="price_no_format">{{ product.price }}</span>
+						{% else %}
+						<span class="price-old"><span class="price_no_format">{{ product.price }}</span>
+						{% if ((on_off_percent_discount == '1') and product.special) %}<span class="sticker-ls-pd procent-skidka">{{ product.skidka }} %</span>{% endif %}</span>
+						<span class="price-new"><span class="special_no_format">{{ product.special }}</span></span>
+						{% endif %}
+						{% if (product.tax) %}
+						<span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+			<div class="actions dflex w-100">
+				<div class="cart"><button class="btn btn-general" type="button" {% if ((product.product_quantity <= 0) and disable_cart_button) %}disabled{% else %}onclick="cart.add('{{ product.product_id }}',this)"{% endif %}><span class="icon-cart-add"></span><span class="text-cart-add">{% if (change_text_cart_button_out_of_stock == 1 and product.product_quantity <= 0) %}{{ disable_cart_button_text }}{% else %}{{ button_cart }}{% endif %}</span></button></div>
+				<div class="addit-action pl-10 dflex">
+					{% if (setting_module.status_compare is defined and (setting_module.status_compare == '1')) %}
+						<div class="compare"><button class="btn btn-compare" type="button" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><span class="btn-icon-compare"></span></button></div>
+					{% endif %}
+					{% if (setting_module.status_wishlist is defined and (setting_module.status_wishlist == '1')) %}
+						<div class="wishlist"><button class="btn btn-wishlist" type="button" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><span class="btn-icon-wishlist"></span></button></div>
+					{% endif %}
+					{% if (setting_module.status_fastorder is defined and (setting_module.status_fastorder == '1')) %}
+					{% if ((not disable_fastorder_button and ((product.product_quantity <= 0) or product.product_quantity > 0)) or (disable_fastorder_button and product.product_quantity > 0)) %}
+						<div class="quick-order">
+						<button class="btn btn-fastorder" title="{{ config_text_open_form_send_order[lang_id].config_text_open_form_send_order }}" type="button" onclick="fastorder_open({{ product.product_id}});" {% if ((product.product_quantity <= 0) and disable_fastorder_button) %}disabled{% endif %}>
+							<span class="btn-icon-fastorder"></span>
+						</button>
+					  </div>
+					{% endif %}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

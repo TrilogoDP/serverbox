@@ -1,0 +1,30 @@
+<div class="banner-pro-box">
+<div class="row-flex">
+	{% for key,result in banners_pro %}
+		<div class="mb-10 mt-10 col-{{ col }}">
+		<div class="banner-pro-{{ module ~ key }} item-bpro dflex flex-column flex-grow-1"  {% if (result['bg_block'] is not empty) %}style="background-color: {{ result.bg_block }}"{% endif %}>
+			<div class="bpro-image">
+				<img class="img-responsive" loading="lazy" width="{{ result.image_width }}" height="{{ result.image_height }}" src="{{ result.image }}" alt="{{ result.title }}"/>
+			</div>
+			<div class="bpro-title" {% if (result.color_title is not empty) %}style="color:{{ result.color_title }}"{% endif %}>{{ result.title }}</div>
+			<div class="bpro-description" {% if (result.color_desc is not empty) %}style="color:{{ result.color_desc }}"{% endif %}>{{ result.description }}</div>
+			{% if (result.price) %}
+			<div class="bpro-price-box dflex align-items-center justify-content-between">
+				<span class="bpro-price" {% if (result.price_color is not empty) %}style="color:{{ result.price_color }}"{% endif %}>
+					{% if (result.price_from is not empty) %}
+					<span class="bpro-price-from">{{ result.price_from }}</span>
+					{% endif %}
+					{{ result.price }}
+				</span>
+				<a href="{{ result.link }}">
+					<span class="bpro-link dflex align-items-center justify-content-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" fill="none" viewBox="0 0 5 9"><path fill="#000" fill-rule="evenodd" d="M3.065 4.791a.5.5 0 00-.004-.65L.622 1.327a.5.5 0 01.756-.655l2.439 2.814a1.5 1.5 0 01.01 1.952L1.382 8.323a.5.5 0 11-.763-.646L3.065 4.79z" clip-rule="evenodd"/></svg>
+					</span>
+				</a>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+</div>

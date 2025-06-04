@@ -1,0 +1,75 @@
+<div class="container-module">
+	<div class="product-slider module-viewed">
+		{% for product in products %}
+			<div class="item h-auto">
+				<div class="product-thumb dflex flex-column h-100">
+					<a onclick="removeViewed('{{ product.remove }}');" href="javascript:void(0)" title="{{ button_remove }}" class="btn btn-remove"><i class="fa fa-trash-o"></i></a>
+					<div class="image">
+						<div class="stickers-ns">
+							{% if ((on_off_sticker_special == '1') and product.special) %}
+								<div class="sticker-ns special">
+									{% if (config_change_icon_sticker_special is not empty) %}<i class="fa {{ config_change_icon_sticker_special }} "></i>{% endif %}
+									{{ text_sticker_special[lang_id].config_change_text_sticker_special }}
+								</div>
+							{% endif %}
+							{% if ((on_off_sticker_topbestseller == '1') and (product.top_bestsellers >= config_limit_order_product_topbestseller)) %}
+								<div class="sticker-ns bestseller">
+									{% if (config_change_icon_sticker_topbestseller is not empty) %}<i class="fa {{ config_change_icon_sticker_topbestseller }} "></i>{% endif %}
+									{{ text_sticker_topbestseller[lang_id].config_change_text_sticker_topbestseller }}
+								</div>
+							{% endif %}
+							{% if ((on_off_sticker_popular == '1') and (product.viewed>=config_min_quantity_popular)) %}
+								<div class="sticker-ns popular">
+									{% if (config_change_icon_sticker_popular is not empty) %}<i class="fa {{ config_change_icon_sticker_popular }} "></i>{% endif %}
+									{{ text_sticker_popular[lang_id].config_change_text_sticker_popular }}
+								</div>
+							{% endif %}
+							{% if ((on_off_sticker_newproduct == '1') and product.sticker_new_prod ) %}
+								<div class="sticker-ns newproduct">
+									{% if (config_change_icon_sticker_newproduct is not empty) %}<i class="fa {{ config_change_icon_sticker_newproduct }}"></i>{% endif %}
+									{{ text_sticker_newproduct[lang_id].config_change_text_sticker_newproduct }}
+								</div>
+							{% endif %}
+						</div>
+						<a href="{{ product.href }}"><img width="{{ width }}" height="{{ height }}" src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive"/></a>
+					</div>
+					<div class="caption dflex flex-column flex-grow-1">
+						<div class="product-name"><a href="{{ product.href }}">{{ product.name }}</a></div>
+						<div class="price-actions-box dflex flex-wrap mt-auto">
+						{% if (product.price) %}
+							<div class="price mb-0">
+								  {% if (not product.special) %}
+								  <span class="price_no_format">{{ product.price }}</span>
+								  {% else %}
+								  <span class="price-old"><span class="price_no_format">{{ product.price }}</span>
+								  {% if ((on_off_percent_discount == '1') and product.special) %}<span class="sticker-ls-pd procent-skidka">{{ product.skidka }} %</span>{% endif %}</span>
+								  <span class="price-new"><span class="special_no_format">{{ product.special }}</span></span>
+								  {% endif %}
+								  {% if (product.tax) %}
+								  <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+								  {% endif %}
+							</div>
+						{% endif %}
+							<div class="actions">
+								<div class="cart"><button class="btn btn-general" type="button" {% if ((product.product_quantity <= 0) and disable_cart_button) %}disabled{% else %}onclick="cart.add('{{ product.product_id }}',this)"{% endif %}><span class="icon-cart-add"></span></button></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+<script>
+$(document).ready(function () {
+	$('.module-viewed').slick({
+		nextArrow: '<div class="slick-mod-arrow next-prod"><svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" fill="none" viewBox="0 0 5 9"><path fill="#000" fill-rule="evenodd" d="M3.065 4.791a.5.5 0 00-.004-.65L.622 1.327a.5.5 0 01.756-.655l2.439 2.814a1.5 1.5 0 01.01 1.952L1.382 8.323a.5.5 0 11-.763-.646L3.065 4.79z" clip-rule="evenodd"/></svg></div>',
+		prevArrow: '<div class="slick-mod-arrow prev-prod"><svg xmlns="http://www.w3.org/2000/svg" width="5" height="9" fill="none" viewBox="0 0 5 9"><path fill="#000" fill-rule="evenodd" d="M1.935 4.209a.5.5 0 00.004.65l2.439 2.814a.5.5 0 01-.756.655L1.183 5.514a1.5 1.5 0 01-.01-1.952L3.618.677a.5.5 0 11.763.646L1.935 4.21z" clip-rule="evenodd"/></svg></div>',
+		infinite: false,
+		adaptiveHeight: false,
+		slidesToShow: 8,
+		respondTo: 'slider',
+		responsive: [{breakpoint: 1800,settings: {slidesToShow:7}},{breakpoint: 1500,settings: {slidesToShow: 6}},{breakpoint: 1300,settings: {slidesToShow: 5}},{breakpoint: 992,settings: {slidesToShow: 4}}]
+	});
+});
+</script>
