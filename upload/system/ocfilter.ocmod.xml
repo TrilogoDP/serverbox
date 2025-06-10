@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
   <name>OCFilter Modification</name>
-  <code>ocfilter mod</code>
+  <code>ocfilter</code>
   <version>4.8.2</version>
   <author>Oleksandr S.</author>
   <link>https://ocfilter.com</link>
